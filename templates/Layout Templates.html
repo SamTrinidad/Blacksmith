@@ -1,0 +1,76 @@
+<head>
+    <title>The Blacksmith</title>
+</head>
+
+<template name="main">
+    <div id="heading">
+        <a href="{{pathFor 'home'}}"><img src="images/Hammerwhite2.png"></a>
+    </div>
+    <div id ="everything">
+        <div id="topBar">
+        {{> navigation}}
+        </div><br/>
+
+        <div id="botBar">
+            <div id="leftC" class="body">
+                {{> sideBar}}
+            </div>
+            <div id="content" class="body">
+                {{> yield}}
+            </div>
+        </div>
+    </div>
+
+</template>
+
+<template name="navigation">
+    <div id = "navigation">
+            <div id="loginDiv">
+                {{> loginButtons}}
+            </div>
+            {{#if isInRole 'user'}}
+                <div class="nav"><a href="{{pathFor 'gold'}}">Gold : {{gold}}</a></div>
+                <div class="nav"><a href="{{pathFor 'cart'}}">Cart</a></div>
+                <div class="nav"><a href="{{pathFor 'purchaseHistory'}}">Purchase History</a></div>
+            {{/if}}
+            {{#if isInRole 'blacksmith'}}
+                <div class="nav"><a href="{{pathFor 'addItem'}}">Add Product</a></div>
+            {{/if}}
+            {{#if isInRole 'admin'}}
+                <div class="nav"><a href="{{pathFor 'users'}}">Users</a></div>
+            {{/if}}
+
+    </div>
+</template>
+
+<template name="sideBar">
+    <div id = "sideBar">
+        <a href="{{pathFor 'weapon'}}">
+            <div class="cL">
+                <img src="images/swordaba.png" class="a">
+                <img src="images/swordab.png" class="b">
+            </div>
+        </a><br>
+        <a href="{{pathFor 'armour'}}">
+            <div class="cL">
+            <img src="images/armor1.png" class="a">
+            <img src="images/armor2.png" class="b">
+            </div>
+        </a><br>
+        <a href="{{pathFor 'blacksmiths'}}">
+            <div class="cL">
+                <img src="images/bs1.png" class="a">
+                <img src="images/bs2.png" class="b">
+            </div>
+        </a><br>
+        <a href="{{pathFor 'findus'}}">
+            <div class="cL">
+                <img src="images/globe1.png" class="a">
+                <img src="images/globe2.png" class="b">
+            </div>
+        </a><br>
+    </div>
+</template>
+
+
+

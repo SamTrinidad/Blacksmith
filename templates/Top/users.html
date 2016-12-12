@@ -1,0 +1,21 @@
+<template name="users">
+    {{#each userList}}
+        {{>userItem}}
+    {{/each}}
+</template>
+
+<template name="userItem">
+    <div class="iCart">
+        <b>Name:</b> {{first}} {{last}}<br>
+        <b>Email:</b> {{emailAddress}}<br>
+        <b>Roles:</b> {{userRole}}<br>
+        {{#if isPending}}
+            <b>Application:</b><br>
+            {{comment}}<br>
+            <form>
+                <input type="hidden" value="{{_id}}" name="approveUser">
+                <input type="submit" value="Approve Application">
+            </form>
+        {{/if}}
+    </div>
+</template>

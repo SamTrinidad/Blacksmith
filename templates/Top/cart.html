@@ -1,0 +1,16 @@
+<template name="cart">
+    <div id="message">Current items in your cart:</div>
+    {{#each cartItem}}
+        <div class="iCart">
+            {{name}}{{multiple this._id}}<br>
+            Price for each: {{cost}}
+        </div>
+    {{/each}}
+
+    <div class="iCart">
+        <b>Total Price: </b>{{total}}<br>
+
+        <input type="button" value="CheckOut" id="cout">
+        <input type="button" value="Clear Cart" id="clr">
+    </div>
+</template>

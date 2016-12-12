@@ -1,0 +1,11 @@
+<template name="purchaseHistory">
+    {{#each purchase}}
+        <div class="iCart">
+            <ul>
+                {{{plist items}}}
+            </ul>
+            Purchased:<br> <b>{{date}}</b><br>
+            Total Price:<br> <b>{{total}}</b>
+        </div>
+    {{/each}}
+</template>

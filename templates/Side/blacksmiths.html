@@ -1,0 +1,33 @@
+<template name="blacksmiths">
+    {{#each item}}
+        <div class="iCart">
+            <h2>{{fname}} {{lname}}</h2><br>
+            {{email}}<br>
+            <Br>
+            {{application}}
+        </div>
+    {{/each}}
+    <br><br><br>
+    {{#if isInRole 'user'}}
+        {{#unless isInRole 'blacksmith'}}
+            <p>Interested in becoming a blacksmith? <a href="{{pathFor 'bsApplication'}}">Apply Now!</a></p>
+        {{/unless}}
+    {{/if}}
+</template>
+
+<template name="bsApplication">
+    <form id="application">
+        First name:<br>
+        <input type="text" name="firstname"><br>
+        Last name:<br>
+        <input type="text" name="lastname"><br>
+        <br>
+        Profile Description:<br>
+        <textarea name="rzn" cols="35" rows="5" form="application"></textarea><br>
+        <input id="apply" type="submit" value="Send Application">
+    </form>
+</template>
+
+<template name="submitted">
+    Your Application has been submitted
+</template>

@@ -1,0 +1,18 @@
+<template name="armour">
+    <div id="search">
+        {{> EasySearch.Input index=searchIndex }}<br>
+    </div>
+        <div id="message"></div><br>
+        {{#EasySearch.Each index=searchIndex }}
+            {{#if isArmour type}}
+                <div class="iList">
+                    <h2>{{name}}</h2><br>
+                    Price : {{cost}}
+                    {{#if isInRole 'user'}}
+                        <input name="{{name}}" class="addCart" type="button" value="Add to Cart">
+                    {{/if}}
+                </div>
+            {{/if}}
+        {{/EasySearch.Each}}
+
+</template>
